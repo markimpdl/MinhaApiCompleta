@@ -21,7 +21,9 @@ namespace DevIO.Api.Controllers
 
         public FornecedoresController(IFornecedorRepository fornecedorRepository,
                                       IFornecedorService fornecedorService,
-                                      IMapper mapper)
+                                      IMapper mapper,
+                                      INotificador notificador)
+            : base(notificador)
         {
             _fornecedorRepository = fornecedorRepository;
             _fornecedorService = fornecedorService;
@@ -52,18 +54,12 @@ namespace DevIO.Api.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return CustomResponse(ModelState);
             }
 
-            var fornecedor = _mapper.Map<Fornecedor>(fornecedorViewModel);
-            var result = await _fornecedorService.Adicionar(fornecedor);
+            await _fornecedorService.Adicionar(_mapper.Map<Fornecedor>(fornecedorViewModel));
 
-            if (!result)
-            {
-                return BadRequest();
-            }
-
-            return Ok(fornecedor);
+            return CustomResponse(fornecedorViewModel);
         }
 
 
@@ -72,23 +68,19 @@ namespace DevIO.Api.Controllers
         {
             if (id != fornecedorViewModel.Id)
             {
-                return BadRequest();
+                NotificarErro("o id informado não é o mesmo passado na query");
+                return CustomResponse(fornecedorViewModel);
+
             }
 
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return CustomResponse(ModelState);
             }
 
-            var fornecedor = _mapper.Map<Fornecedor>(fornecedorViewModel);
-            var result = await _fornecedorService.Atualizar(fornecedor);
+            var result = await _fornecedorService.Atualizar(_mapper.Map<Fornecedor>(fornecedorViewModel));
 
-            if (!result)
-            {
-                return BadRequest();
-            }
-
-            return Ok(fornecedor);
+            return CustomResponse(fornecedorViewModel);
         }
 
 
@@ -101,13 +93,9 @@ namespace DevIO.Api.Controllers
                 return NotFound();
             }
 
-            var result = await _fornecedorService.Remover(id);
-            if (!result)
-            {
-                return BadRequest();
-            }
+            await _fornecedorService.Remover(id);
 
-            return Ok(fornecedor);
+            return CustomResponse();
         }
     }
 }
