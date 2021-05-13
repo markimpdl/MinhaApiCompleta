@@ -1,9 +1,0 @@
-C:\Eduardo\ApiCompleta\src\DevIO.Business\bin\Debug\netcoreapp2.2\DevIO.Business.deps.json
-C:\Eduardo\ApiCompleta\src\DevIO.Business\bin\Debug\netcoreapp2.2\DevIO.Business.dll
-C:\Eduardo\ApiCompleta\src\DevIO.Business\bin\Debug\netcoreapp2.2\DevIO.Business.pdb
-C:\Eduardo\ApiCompleta\src\DevIO.Business\obj\Debug\netcoreapp2.2\DevIO.Business.AssemblyInfoInputs.cache
-C:\Eduardo\ApiCompleta\src\DevIO.Business\obj\Debug\netcoreapp2.2\DevIO.Business.AssemblyInfo.cs
-C:\Eduardo\ApiCompleta\src\DevIO.Business\obj\Debug\netcoreapp2.2\DevIO.Business.csproj.CoreCompileInputs.cache
-C:\Eduardo\ApiCompleta\src\DevIO.Business\obj\Debug\netcoreapp2.2\DevIO.Business.dll
-C:\Eduardo\ApiCompleta\src\DevIO.Business\obj\Debug\netcoreapp2.2\DevIO.Business.pdb
-C:\Eduardo\ApiCompleta\src\DevIO.Business\obj\Debug\netcoreapp2.2\DevIO.Business.csprojAssemblyReference.cache
